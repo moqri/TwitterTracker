@@ -14,8 +14,8 @@ countT=-1
 
 print "Content-Type: text/html"     # HTML is following
 print                               # blank line, end of headers
-print "<H1>Last 20 Tweets:</H1>"
 
-print ('<script>window.setInterval("reloadIFrame();", 2000);function reloadIFrame() { document.getElementById("myIframe").src="read.cgi";}</script>')
-print ('<iframe src="read.cgi" id= myIframe width="400" height="400"</iframe>')
-
+for tweet in collection.find({},{"text":1}).limit(10).sort("$natural",-1):
+	print "<H4 id='NewTweet'>"
+	print unicode(tweet['text']).encode('ascii', 'xmlcharrefreplace')
+	print "</H4>"
