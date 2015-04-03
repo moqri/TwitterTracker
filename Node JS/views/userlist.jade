@@ -1,0 +1,20 @@
+
+
+body
+	script(type='text/javascript' src='http://code.jquery.com/jquery.min.js')
+	script.
+		$( document ).ready(function() {
+			alert('hello world');
+			$("#message").html("message set through jquery")
+		});
+
+block content
+	h1.
+		Last 20 Tweets
+	.scroll
+		ul
+			each user, i in userlist
+				li
+					p#message= user.text
+					
+include ./index.html
