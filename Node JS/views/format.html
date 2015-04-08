@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Tweets Display</title>
+
+    <!-- Css -->
+ <style type="text/css">
+ ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}         
+.scroll {
+	border: 1px solid #fff;
+	width: auto;
+	height: 700px;
+	overflow: hidden;
+	position: relative;
+}
+.scroll ul {
+	position: absolute;
+}
+.scroll  li {
+	height: 20px;
+	padding: 5px 0 5px 19px;	
+}
+li.add{
+     display:none;
+}
+ </style> 
+  </head>
+  <body>       
+    <!-- jQuery  -->
+    <script src="jquery-1.11.2.min.js"></script>
+    <script type="text/javascript">
+	$(function() {
+		var $news = $('.scroll ul'),
+		scrollHeight = $news.find('li').outerHeight(true),
+		scrollSpeed = 1000, fadeInSpeed = 1000,
+		timer, speed = 2000;
+		count=1	
+		  function newsScroll(){
+			$news.animate({
+				top: scrollHeight + 'px'
+				}, scrollSpeed, function(){
+				var $last = $news.find('li:last');
+				
+				$last.clone().hide().prependTo($news).fadeIn(fadeInSpeed, function(){
+						if(count<10){
+						timer = setTimeout(newsScroll, speed);
+						count++;
+						} 
+				});
+				$news.css('top', 0);
+				$last.remove();				
+			});							
+		}
+		timer = setTimeout(newsScroll, speed);		
+	});
+	</script>
+  </body>
+</html>

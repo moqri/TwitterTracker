@@ -1,20 +1,19 @@
+doctype html
+html(lang="en")
+	head
+		link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
 
-
-body
-	script(type='text/javascript' src='http://code.jquery.com/jquery.min.js')
-	script.
-		$( document ).ready(function() {
-			alert('hello world');
-			$("#message").html("message set through jquery")
-		});
-
-block content
-	h1.
-		Last 20 Tweets
-	.scroll
-		ul
-			each user, i in userlist
-				li
-					p#message= user.text
-					
-include ./index.html
+			
+	body
+		script(type='text/javascript' src='http://code.jquery.com/jquery.min.js')
+		h1.
+			Last 20 Tweets
+		.scroll
+			ul
+				each val in [10,11,12,13,14,15,16,17,18,19]
+					li
+						p#message= userlist[val].text
+				each val in [0,1,2,3,4,5,6,7,8,9]
+					li.add
+						p#message= userlist[val].text
+	include ./format.html
