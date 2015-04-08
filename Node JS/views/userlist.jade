@@ -12,8 +12,9 @@ html(lang="en")
 			ul
 				each val in [10,11,12,13,14,15,16,17,18,19]
 					li
-						p#message= userlist[val].text
+						p#message= userlist[val].created_at+' '+userlist[val].user.name+': '+userlist[val].text
+						
 				each val in [0,1,2,3,4,5,6,7,8,9]
 					li.add
-						p#message= userlist[val].text
+						p#message= userlist[val].created_at+' '+userlist[val].user.name+': '+userlist[val].text
 	include ./format.html
