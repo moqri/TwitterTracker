@@ -1,4 +1,11 @@
 import threading
+import time
+month = time.strftime("%b")
+day=time.strftime("%a")
+dd=time.strftime("%d")
+## Display current date and time from now variable
+today='^'+day+' '+ month+' '+dd
+
 
 def printit():
     threading.Timer(600, printit).start()
@@ -11,7 +18,7 @@ def printit():
     collection = db.t2
     countT=-1
     c=[]
-    for tweet in collection.find({'created_at': { '$regex':'^Wed Apr 08'},'retweeted_status':{ '$exists': 1 } },{"text":1,"created_at":1,"retweeted_status":1}).limit(10000).sort("$natural",-1):
+    for tweet in collection.find({'created_at': { '$regex':today},'retweeted_status':{ '$exists': 1 } },{"text":1,"created_at":1,"retweeted_status":1}).limit(10000).sort("$natural",-1):
         t= (tweet['text'], tweet['created_at'],tweet['retweeted_status']['retweet_count'])
         c.append(t)
     c=sorted(c, key=itemgetter(2),reverse=True)
@@ -31,10 +38,12 @@ def printit():
         t2n=(t2[0],t2[1],t2[2],count)
         cnn.append(t2n)
     cnn=sorted(cnn, key=itemgetter(3),reverse=True)
-    for t in cnn[:50]:
+    for i in range(50):
+        t=cnn[50-i-1]
         post={"text":t[0],"created_at":t[1],"retweet_count":t[2],"today_count":t[3]}
         posts = db.top
         posts.insert(post)
+        print t
 
 
 
