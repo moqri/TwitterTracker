@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'test01' });
 });
 
 /* GET Hello World page. */
@@ -16,9 +16,12 @@ module.exports = router;
 router.get('/userlist', function(req, res) {
     var db = req.db;
     var collection = db.get('t2');
+	var collection_top = db.get('top');
+	var glob;
     collection.find({ },{ limit : 20, sort : { $natural : -1 } },function(e,docs){
-        res.render('userlist', {
-            "userlist" : docs
-        });
-    });
+		collection_top.find({ },{ limit : 20, sort : { $natural : -1 } },function(e,top){
+			res.render('userlist', {"userlist" : docs,"top":top });
+		});
+	});
+
 });
