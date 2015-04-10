@@ -9,36 +9,38 @@
 
     <!-- Css -->
  <style type="text/css">
- ul, li {
-	margin: 0;
+ul,li {   
+	margin-right: auto;
+	margin-left: 10px;
 	padding: 0;
 	list-style: none;
-}         
-.scroll {
-	border: 1px solid #fff;
-	width: auto;
-	height: 700px;
-	overflow: hidden;
-	position: relative;
-}
-.scroll ul {
-	position: absolute;
-}
-.scroll  li {
-	height: 20px;
-	padding: 5px 0 5px 19px;	
-}
+}     
 li.add{
      display:none;
 }
- </style> 
+ </style>
+<script language="javascript" type="text/javascript">
+// Check the main container is ready
+$('.row').ready(function(){
+    $('ul').each(function(){
+        // Get the content0
+        var str = $(this).html();
+        // Set the regex string
+        var regex = /(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)/ig
+        // Replace plain text links by hyperlinks
+        var replaced_text = str.replace(regex, "<a href='$1' target='_blank'>$1</a>");
+        // Echo link
+        $(this).html(replaced_text);
+    });
+});
+</script> 
   </head>
   <body>       
     <!-- jQuery  -->
     <script src="jquery-1.11.2.min.js"></script>
     <script type="text/javascript">
 	$(function() {
-		var $news = $('.scroll ul'),
+		var $news = $('.row ul'),
 		scrollHeight = $news.find('li').outerHeight(true),
 		scrollSpeed = 1000, fadeInSpeed = 1000,
 		timer, speed = 2000;
