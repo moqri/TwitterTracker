@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+var s = "Fri Apr 09 12:53:54 +0000 2010";
+
+var date = new Date(
+    s.replace(/^\w+ (\w+) (\d+) ([\d:]+) \+0000 (\d+)$/,
+        "$1 $2 $4 $3 UTC"));
+		
+function myFunction() {
+    document.getElementById("demo").innerHTML = date;
+}
+</script>
+</head>
+
+<body>
+
+<h1>JavaScript in Head</h1>
+
+<p id="demo">A Paragraph.</p>
+
+<button type="button" onclick="myFunction()">Try it</button>
+
+</body>
+</html> 
