@@ -9,22 +9,6 @@
 
     <!-- Css -->
  <style type="text/css">
-<<<<<<< HEAD:Node JS/views/format.html
-ul,li {   
-	margin-right: auto;
-	margin-left: 10px;
-	padding: 0;
-	list-style: none;
-}     
-li.add{
-     display:none;
-}
- </style>
-<script language="javascript" type="text/javascript">
-// Check the main container is ready
-$('.row').ready(function(){
-    $('ul').each(function(){
-=======
 .content{width:960px;
  margin-left: auto;
  margin-right: auto;
@@ -86,7 +70,6 @@ li.add{
 // Check the main container is ready
 $('.scroll').ready(function(){
     $('#test').each(function(){
->>>>>>> pr/2:Node JS/views/list.html
         // Get the content0
         var str = $(this).html();
         // Set the regex string
@@ -97,12 +80,9 @@ $('.scroll').ready(function(){
         $(this).html(replaced_text);
     });
 });
-<<<<<<< HEAD:Node JS/views/format.html
-=======
 
 
 
->>>>>>> pr/2:Node JS/views/list.html
 </script> 
   </head>
   <body>       
@@ -110,7 +90,7 @@ $('.scroll').ready(function(){
     <script src="jquery-1.11.2.min.js"></script>
     <script type="text/javascript">
 	$(function() {
-		var $news = $('.row ul'),
+		var $news = $('.scroll ul'),
 		scrollHeight = $news.find('li').outerHeight(true),
 		scrollSpeed = 1000, fadeInSpeed = 1000,
 		timer, speed = 2000;
