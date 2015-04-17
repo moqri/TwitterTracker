@@ -9,29 +9,80 @@
 
     <!-- Css -->
  <style type="text/css">
- ul, li {
+.content{width:960px;
+ margin-left: auto;
+ margin-right: auto;
+ }
+ h1{text-align:center;
+ }
+#listimage{
+display: inline;
+float: left;
+border-radius:5px;
+height:48px;
+width:48px; 
+margin:5px ;}
+
+#name{
+margin-top:-30px;
+padding-left:300px;
+ }
+#count{
+margin-top:-30px;
+padding-left:300px;
+ }
+
+
+
+ul, li {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	border-top: 1px solid #e1e8ed;
 }         
-.scroll {
+.box1 {
 	border: 1px solid #fff;
 	width: auto;
-	height: 700px;
-	overflow: hidden;
+	height: 300px;
+	overflow: auto;
+	position: relative;
+}
+.box2 {
+	border: 1px solid #fff;
+	width: auto;
+	height: 300px;
+	overflow: auto;
 	position: relative;
 }
 .scroll ul {
 	position: absolute;
 }
 .scroll  li {
-	height: 20px;
-	padding: 5px 0 5px 19px;	
+	height: auto;
+	padding: 2px ;	
 }
 li.add{
      display:none;
 }
- </style> 
+
+ </style>
+<script language="javascript" type="text/javascript">
+// Check the main container is ready
+$('.scroll').ready(function(){
+    $('li').each(function(){
+        // Get the content0
+        var str = $(this).find('p').filter('#test').html();
+		//var str = $(this).html();
+        // Set the regex string
+        var regex = /(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)/ig
+        // Replace plain text links by hyperlinks
+        str = str.replace(regex, "<a href='$1' target='_blank'>$1</a>");
+		str=str.replace(/(^|\s)(#[a-z\d-]+)/ig,'$1<a href="http://twitter.com/#!/search/$2">$2</a>');
+        // Echo link
+		$(this).find('p').filter('#test').html(str);
+    });
+});
+</script>
   </head>
   <body>       
     <!-- jQuery  -->
