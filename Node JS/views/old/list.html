@@ -39,9 +39,6 @@ ul, li {
 	padding: 0;
 	list-style: none;
 	border-top: 1px solid #e1e8ed;
-	
-color: rgb(0, 0, 0); 
-background: #f0f8fc;"
 }         
 .box1 {
 	border: 1px solid #fff;
@@ -60,33 +57,29 @@ background: #f0f8fc;"
 .scroll ul {
 	position: absolute;
 }
-.box1  li {
+.scroll  li {
 	height: auto;
 	padding: 2px ;	
 }
-.box2  li {
-	height: auto;
-	padding: 2px ;	
+li.add{
+     display:none;
 }
 
  </style>
 <script language="javascript" type="text/javascript">
 // Check the main container is ready
 $('.scroll').ready(function(){
-    $('li').each(function(){
+    $('#test').each(function(){
         // Get the content0
-        var str = $(this).find('p').filter('#test').html();
-		//var str = $(this).html();
+        var str = $(this).html();
         // Set the regex string
         var regex = /(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)/ig
         // Replace plain text links by hyperlinks
-        str = str.replace(regex, "<a href='$1' target='_blank'>$1</a>");
-		str=str.replace(/(^|\s)(#[a-z\d-]+)/ig,'$1<a href="http://twitter.com/#!/search/$2">$2</a>');
+        var replaced_text = str.replace(regex, "<a href='$1' target='_blank'>$1</a>");
         // Echo link
-		$(this).find('p').filter('#test').html(str);
+        $(this).html(replaced_text);
     });
 });
-
 
 
 

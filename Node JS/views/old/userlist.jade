@@ -12,17 +12,15 @@ html(lang="en")
 				Last 20 Tweets
 			.box1
 				.scroll
-					ul
+					ul.list-unstyled
 						each val in [10,11,12,13,14,15,16,17,18,19]
-							li(onMouseOver="this.style.background='#A3C2FF',this.style.color='#0021a5'",
-							onMouseOut="this.style.background='#f0f8fc',this.style.color='#000000'")
+							li
 								img#listimage(src=userlist[val].user.profile_image_url)
 								p#date=userlist[val].created_at
 								p#name=userlist[val].user.name
 								p#test=userlist[val].text
 						each val in [0,1,2,3,4,5,6,7,8,9]
-							li.add(onMouseOver="this.style.background='#A3C2FF',this.style.color='#0021a5'",
-							onMouseOut="this.style.background='#f0f8fc',this.style.color='#000000'")
+							li.add
 								img#listimage(src=userlist[val].user.profile_image_url)
 								p#date=userlist[val].created_at
 								p#name=userlist[val].user.name
@@ -32,8 +30,7 @@ html(lang="en")
 			.box2
 				ul
 					each t in top
-						li(onMouseOver="this.style.background='#A3C2FF',this.style.color='#0021a5'",
-							onMouseOut="this.style.background='#f0f8fc',this.style.color='#000000'")
+						li
 							img#listimage(src=t.user.profile_image_url)
 							p#date=t.created_at
 							p#count=t.today_count
