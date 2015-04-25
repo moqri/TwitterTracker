@@ -22,7 +22,7 @@ router.get('/userlist', function(req, res) {
     collection.find({ },{ limit : 20, sort : { $natural : -1 } },function(e,docs){
 		collection_top.find({ },{ limit : 20, sort : { $natural : -1 } },function(e,top){
 			collection_day.find({ },{ limit : 20, sort : { $natural : -1 } },function(e,days){
-				res.render('userlist', {"userlist" : docs,"top":top, days:"days" });
+				res.render('userlist', {"userlist" : docs,"top":top, "days":days });
 			});
 		});
 	});
