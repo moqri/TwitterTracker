@@ -17,10 +17,13 @@ router.get('/userlist', function(req, res) {
     var db = req.db;
     var collection = db.get('t2');
 	var collection_top = db.get('top');
+	var collection_day=db.get('day');
 	var glob;
     collection.find({ },{ limit : 20, sort : { $natural : -1 } },function(e,docs){
 		collection_top.find({ },{ limit : 20, sort : { $natural : -1 } },function(e,top){
-			res.render('userlist', {"userlist" : docs,"top":top });
+			collection_day.find({ },{ limit : 20, sort : { $natural : -1 } },function(e,days){
+				res.render('userlist', {"userlist" : docs,"top":top, days:"days" });
+			});
 		});
 	});
 
