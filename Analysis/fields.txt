@@ -1,0 +1,11 @@
+id_str
+created_at
+retweeted_status.user.screen_name
+text
+entities.user_mentions.0.screen_name
+entities.hashtags.0.text
+entities.hashtags.1.text
+entities.hashtags.2.text
+entities.urls.0.url
+entities.media.0.media_url
+retweet_count
