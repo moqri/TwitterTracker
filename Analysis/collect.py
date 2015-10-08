@@ -13,7 +13,7 @@ from twython import Twython
 import pprint as pp
 
 #Variables that contains the user credentials to access Twitter API
-#credentials
+
 #auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 #auth.set_access_token(access_token, access_token_secret)
 #api = tweepy.API(auth)
