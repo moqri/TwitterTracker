@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Justified Nav Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="justified-nav.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+
+<br>
+<h1 align='center'> {{name}}'s Social Media Analysis </h2>
+<h4 align='center'> Evidence from Twitter </h3>
+<br>
+<center><table>
+  <tr>
+    <td>
+<center><img src="logo.jpg" alt="wlogo" height="150" width="150"></center>
+    </td>
+    <td>
+      <div class="jumbotron">
+      	<h1 align='center'> (<a href="https://twitter.com/{{screen_name}}" target="_blank">{{screen_name}}</a>)
+      </div>
+    </td>
+  </tr>
+</table></center>
+<h4 align='center'> Last update:{{today}} </h3>
+
+<hr>
+<h2>Summery</h2>
+<ul class='lead'>
+  <li>{{name}}({{screen_name}}) has been active on Twitter since {{month}} {{year}}.</li>
+  <li>The account has posted <b>{{total_tweets}}</b> tweets (posts) since then and several tweets are posted most days.</li>
+  <li>There are currently <b>{{total_followers}}</b> people following {{name}}'s posts.
+</li>
+</ul>
+</p>
+<h2>Original Posts</h2>
+<p class='lead'>
+The original tweets posted by {{name}} have been reposted\forwarded (retweeted) by other users very differently. Although {{name}}'s tweets are retweeted <b>{{average}}</b> times on average, some posts have been retweeted up to <b>{{maxret}}</b> times.
+</p>
+<h3>Most Retweeted Tweets</h3>
+{{topret}}
+<br>
+<center><img src="tweets.jpg" alt=""></center>
+<h3>Timing</h3>
+<p class='lead'>
+Most tweets are tweeted <b>{{time_tweet}}</b> while the ones posted <b>{{time_retweet}}</b> have been retweeted more on average.
+</p>
+
+<center><figure>
+<img src="timing.jpg" alt="">
+<figcaption>Total tweets and average retweets\favored based on the time (hour of day) tweets were posted</figcaption>
+</figure></center>
+
+<h3>Picture or No Picture </h3>
+<p class='lead'>Tweets with a photo attached are retweeted and favored around {{photo}} more compared the tweets without a photo</p>
+<center><figure>
+<img src="photo.jpg" alt="">
+<figcaption>Average Retweet and Favorite for tweets with a photo</figcaption>
+</figure></center>
+
+
+<h2> Retweets </h2>
+<p class='lead'>
+{{name}} retweets posts from the following users more often:
+</p>
+{{retfrom}}
+<br>
+<h2> Followers </h2>
+<p class='lead'>
+The followers of {{name}} vary largely in their popularity. Most of them are followed by 100 to 1000 other people while some of them have up to 100 thousands followers. Reposting by popular followers is important in successful spread of posts. 
+</p>
+
+{{topfol}}
+
+<center><figure>
+<img src="followers.jpg" alt="">
+</figure></center>
+
+<h3>Who retweet your posts</h3>
+
+<p class='lead'>
+Followers who consistently retweet your posts:
+</p>
+{{reter}}
+      <!-- Site footer -->
+      <footer class="footer">
+        &copy; mahdi.moqri@warrington.ufl.edu
+      </footer>
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+
+
+</body>
+</html>
