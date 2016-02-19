@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+	head
+		link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+
+			
+	body
+		script(type='text/javascript' src='http://code.jquery.com/jquery.min.js')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js')
+		.content
+			h1.
+				Last 20 Tweets
+			.box1
+				.scroll
+					ul.list-unstyled
+						each val in [10,11,12,13,14,15,16,17,18,19]
+							li
+								a(href="https://twitter.com/" + allTweets[val].user.screen_name, target = '_blank')
+									img#listimage(src=allTweets[val].user.profile_image_url)
+								p#date=allTweets[val].created_at
+								p#name=allTweets[val].user.name
+								p#text=allTweets[val].text
+						each val in [0,1,2,3,4,5,6,7,8,9]
+							li.add
+								a(href="https://twitter.com/" + allTweets[val].user.screen_name, target = '_blank')
+									img#listimage(src=allTweets[val].user.profile_image_url)
+								p#date=allTweets[val].created_at
+								p#name=allTweets[val].user.name
+								p#text=allTweets[val].text
+			h1.
+				Top Retweeted Tweets
+					
+	
+include ./list.html
+
+
